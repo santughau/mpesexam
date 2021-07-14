@@ -1,0 +1,51 @@
+<section style="margin-top:20px;margin-bottom:20px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+               <h1 class="text-center text-danger">कृपया विभाग व प्रश्न पत्रिका निवडा .</h1><hr>
+                <div class="form-row ">
+                    <div class="form-group col-md-6">
+                        <label style="font-size: 18px;" class="text-danger">विभाग निवडा </label>
+                        <select class="form-control" (change)="loadExam($event)"  >
+                            <option selected>कृपया एक विभाग निवडा </option>
+                            <option value="{{item.department_id}}" *ngFor="let item of datas" >{{item.department_title}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label style="font-size: 18px;" class="text-danger">प्रश्न पत्रिका निवडा </label>
+                        <select class="form-control" (change)="loadPaper($event)">
+                            <option selected>कृपया एक विभाग निवडा </option>
+                            <option value="{{item.exam_id}}" *ngFor="let item of examList">{{item.exam_name}}</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="card mt-5 " *ngIf="showCard">
+                    <div *ngIf="showLoadingIndicator" class="spinner"></div>
+                    <div class="card-body">
+                        <h2 class="card-title text-danger">{{examPaper?.exam_name}}</h2>
+                        <hr>
+                        <h2 class="card-subtitle mb-2 text-muted"><span class="text-danger">गुण : </span>{{examPaper?.exam_totalMarks}} <span
+                                class="text-danger pl-5"> एकूण प्रश्न : </span> {{examPaper?.exam_noOfQue}}</h2>
+                        <p class="card-text">प्रश्न पत्रिका सोडवण्याकरिता खालील बटण वर क्लिक करा . .</p>
+                        <div align="center">
+                            <button  class="btn btn-primary " (click)="goToQuestion(examPaper?.exam_id)">सोडवा </button><br>
+                      
+                        <div *ngIf="showimg"><ng-adsense [adClient]="'ca-pub-7640562161899788'" [adSlot]="1545253489" [display]="'inline-block'"
+                            [fullWidthResponsive]="true"></ng-adsense></div>
+                        <div *ngIf="!showimg"><ng-adsense [adClient]="'ca-pub-7640562161899788'" [adSlot]="1545253489" [display]="'inline-block'"
+                            [fullWidthResponsive]="true"></ng-adsense></div>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+
+
+</section>

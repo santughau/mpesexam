@@ -1,0 +1,31 @@
+<mat-toolbar color="primary" class="mt-2">
+    <mat-toolbar-row>
+        <button mat-icon-button>
+            <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+        </button>
+        <h1 style="cursor: pointer;" [routerLink]="'/home'">mpscexam.in</h1>
+        <span class="menu-spacer"></span>
+
+    </mat-toolbar-row>
+
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav style="background-color: rgb(96, 23, 212); color: white !important;">
+        <mat-nav-list>
+            <a style="color: white !important;" mat-list-item [routerLink]="'/home'"> मुख्य पान </a>
+            <a style="color: white !important;" mat-list-item [routerLink]="'/quiz'"> बहुपर्यायी प्रश्न </a>
+            <a style="color: white !important;" mat-list-item [routerLink]="'/advertise'"> जाहिरात </a>
+            <a style="color: white !important;" mat-list-item [routerLink]="'/download'"> डाउनलोड </a>
+            <a style="color: white !important;" mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div style="height: 88vh;">
+
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

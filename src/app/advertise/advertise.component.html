@@ -1,0 +1,35 @@
+<section style="margin-top:20px;margin-bottom:20px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center text-danger">नौकरी विषयक जाहिराती</h1>
+                <hr>
+
+                <div class="card mt-3" *ngFor="let item of datas | paginate: { itemsPerPage: 1, currentPage: p }">
+                    <div class="card-body">
+                        <h2 class="card-title text-danger">{{item.advetise_title}}</h2>
+                        <hr>
+                        <h2 class="card-subtitle mb-2 text-muted"><span class="text-danger">दिनांक :
+                            </span>{{item.advetise_date | date}}
+                            <span class="text-danger pl-5"> शेवटची तारीख : </span> {{item.advetise_lastDate | date}}
+                        </h2>
+                        <p class="card-text">संपूर्ण माहिती पाहण्या करीत खालील लिंक वर क्लिक करा .</p>
+                        <div align="center">
+                            <button class="btn btn-primary" (click)="goToDetails(item.advetise_id)">माहिती पहा
+                            </button><br>
+                            <h2 *ngIf="showimg">Hello</h2>
+                            <h2 *ngIf="!showimg">Hi</h2>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</section>

@@ -1,0 +1,27 @@
+<section style="margin-top:20px;margin-bottom:20px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <h2 class="card-title text-danger">{{data?.advetise_title}}</h2>
+                        <hr>
+                        <h2 class="card-subtitle mb-2 text-muted"><span class="text-danger">दिनांक : </span>{{data?.advetise_date | date}}
+                            <span class="text-danger pl-5"> शेवटची तारीख : </span> {{data?.advetise_lastDate | date}}
+                        </h2>
+                        <p class="card-text" [innerHtml]="data.advetise_desc"></p>
+                        <div align="center">
+                            <button class="btn btn-primary" [routerLink]="'/advertise'"> Go Back</button>
+                            <h2 *ngIf="showimg">Hello</h2>
+                            <h2 *ngIf="!showimg">Hi</h2>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</section>
